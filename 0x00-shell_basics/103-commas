@@ -1,18 +1,2 @@
 #!/bin/bash
-
-# Function to list files and directories
-list_files_and_dirs() {
-  ls -a1p --group-directories-first | sed ':a;N;$!ba;s/\n/, /g; s|/\(,\)|/\2|g; s|/\n|/|g' | awk 'BEGIN{a["."]=1; a[".."]=1} {if ($0 in a) print; else b[$0]=1} END{for (i in a) print i; for (j in b) print j}' | sort -k1.2,1n -k1.1,1
-}
-
-# Check if the script is run for different scenarios
-if [ "$1" = "files" ]; then
-  list_files_and_dirs | grep -v '/$'
-elif [ "$1" = "folders" ]; then
-  list_files_and_dirs | grep '/$'
-elif [ "$1" = "mix" ]; then
-  list_files_and_dirs
-else
-  echo "Invalid argument. Usage: $0 {files|folders|mix}"
-fi
-
+ls -amvp
