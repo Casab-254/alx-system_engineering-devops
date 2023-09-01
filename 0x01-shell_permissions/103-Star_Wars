@@ -1,2 +1,2 @@
 #!/bin/bash
-telnet towel blinkenlights.nl
+sudo movieresult -e Star Wars IV -o "http://www.youtube.com/watch?v=_eNhLlMu8eMw"
